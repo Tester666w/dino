@@ -1,12 +1,18 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
+// Загрузка изображений
+const dinoImg = new Image();
+dinoImg.src = 'dino.png';  // Укажите путь к вашему изображению динозавра
+
+const cactusImg = new Image();
+cactusImg.src = 'cactus.png';  // Укажите путь к вашему изображению кактуса
+
 const dino = {
     x: 50,
     y: 300,
     width: 50,
     height: 50,
-    color: 'black',
     dy: 0,
     gravity: 1,
     jumpPower: 15,
@@ -18,20 +24,17 @@ const cactus = {
     y: 300,
     width: 20,
     height: 50,
-    color: 'black',
     speed: 6
 };
 
 let score = 0;
 
 function drawDino() {
-    ctx.fillStyle = dino.color;
-    ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+    ctx.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
 }
 
 function drawCactus() {
-    ctx.fillStyle = cactus.color;
-    ctx.fillRect(cactus.x, cactus.y, cactus.width, cactus.height);
+    ctx.drawImage(cactusImg, cactus.x, cactus.y, cactus.width, cactus.height);
 }
 
 function update() {
