@@ -84,10 +84,15 @@ function jump() {
     }
 }
 
+// Поддержка как для десктопов, так и для мобильных устройств
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
         jump();
     }
+});
+
+document.addEventListener('touchstart', () => {
+    jump();
 });
 
 update();
